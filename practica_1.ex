@@ -1,14 +1,14 @@
 #1
 IO.puts("#1")
 require Integer
-num = 9
+num = IO.gets("Ingrese numero: ") |> String.trim() |> String.to_integer()
 case num do
   x when Integer.is_even(x) -> IO.puts("Par")
   x when Integer.is_odd(x) -> IO.puts("Impar")
 end
 
 IO.puts("#2")
-frase = "Hello"
+frase = IO.gets("Ingrese palabra: ") |> String.trim()
 frase_rev = String.reverse(frase)
 if frase == frase_rev do
   IO.puts("Si es palindromo")
@@ -29,7 +29,7 @@ end
 
 #4
 IO.puts("#4")
-numero = 0
+numero = IO.gets("Ingrese numero: ") |> String.trim() |> String.to_integer()
 if numero > 0 do
   IO.puts("Positivo")
 else
@@ -42,7 +42,7 @@ end
 
 #5
 IO.puts("#5")
-x = 100
+x = IO.gets("Ingrese numero: ") |> String.trim() |> String.to_integer()
 if x > 10 do
   IO.puts("x es mayor que 10")
 else
@@ -51,7 +51,7 @@ end
 
 #6
 IO.puts("#6")
-x = 8
+x = IO.gets("Ingrese numero: ") |> String.trim() |> String.to_integer()
 cond do
   x > 10 -> IO.puts("x es mayor que 10")
   x < 5 -> IO.puts("x es menor que 5")
@@ -67,7 +67,7 @@ IO.puts("Hola #{nombre}!")
 
 #8
 IO.puts("#8")
-frase = "otto"
+frase = IO.gets("Ingrese palabra: ") |> String.trim()
 frase_rev = String.reverse(frase)
 case frase do
   x when x == frase_rev -> IO.puts("Si es palindromo")

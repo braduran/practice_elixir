@@ -1,0 +1,13 @@
+AM #1
+
+Realice los siguientes ejercicios en un proyecto de elixir:
+
+1. Utilizando la correspondencia de patrones, escribe un programa para comprobar si un número dado es par o impar. (Hay algunas formas de resolverlo, escríbalas todas)
+2. Escribe un programa que utilice la correspondencia de patrones para determinar si una cadena dada es un palíndromo o no. (Hay algunas formas de resolverlo, escríbalas todas)
+3. Cree un patrón que coincida con un mapa con las claves :nombre, :edad y :ciudad. Si :nombre es "Juan", imprime "¡Hola Juan de {ciudad}!", en caso contrario imprime "¡Encantado de conocerte!".
+4. Escriba un programa que tome un número entero y devuelva "Positivo" si el número es positivo, "Negativo" si el número es negativo y "Cero" si el número es cero.
+5. Utiliza el flujo de control if/else para comprobar si una variable x es mayor que 10. Si lo es, imprime "x es mayor que 10". Si lo es, imprime "x es mayor que 10", de lo contrario imprime "x es menor o igual que 10".
+6. Utilice el flujo de control cond para comprobar si una variable x es mayor que 10, menor que 5, o entre 5 y 10. Si lo es, imprima "x es mayor que 10", en caso contrario imprima "x es menor o igual que 10". Imprima "x es mayor que 10", "x es menor que 5", o "x está entre 5 y 10" dependiendo del valor de x.
+7. Crea un mapa con las claves "nombre", "edad" y "ciudad". Utiliza la función Map.get/3 para obtener el valor de "nombre" e imprime "¡Hola {nombre}!".
+8. Utilice guardas para comprobar si una cadena dada es un palíndromo.
+9. Defina una lista de cadenas y utilice Enum.sort para ordenarlas por orden alfabético y en orden inverso.

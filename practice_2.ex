@@ -4,7 +4,7 @@ defmodule Practice2.GameCards do
         data = %{nickname: "", score: 0, lives: 4}
 
         nickname = IO.gets("Ingrese nickname: ") |> String.trim()
-        data = update_data(data, :nickname, nickname)
+        data = %{data | :nickname => nickname}
         print_status(data)
 
         {c_down, c_upper} = get_chunk_letters("bcdfghjklmnpqrstvwxyz", 3)
@@ -46,26 +46,23 @@ defmodule Practice2.GameCards do
         if one_card_down == String.downcase(two_card_show) do
             cards = change_cards(cards, one) |> change_cards(two)
             #Se puede poner primer sum_score con one_card_show o two_card_show ya que son iguales
-            update_score = sum_score(one_card_down)
-            new_data = update_data(data, :score, data[:score]+update_score)
+            score = if Enum.member?(["a","e","i","o","u"], one_card_down), do: 15, else: 10
+            new_data = %{data | :score => data[:score]+score}
 
             new_board = change_board(board, one, one_card_show)
                         |> change_board(two, two_card_show)
-
             IO.puts(new_board)
-            if update_score == 15, do: IO.puts("Has encontrado un par de vocales."),
-                                   else: IO.puts("Has encontrado un par de consonantes")
+            if score == 15, do: IO.puts("Has encontrado un par de vocales."),
+                            else: IO.puts("Has encontrado un par de consonantes")
 
             {new_data, cards, new_board}
         else
-            new_lives = data[:lives] - 1
-            new_data = update_data(data, :lives, new_lives)
+            new_data = %{data | :lives => data[:lives]-1}
 
-            new_board = change_board(board, one, one_card_show)
-                        |> change_board(two, two_card_show)
-
+            new_board = change_board(board, one, one_card_show) |> change_board(two, two_card_show)
             IO.puts(new_board)
             IO.puts("Sigue intentando.")
+
             {new_data, cards, board}
         end
     end
@@ -94,16 +91,8 @@ defmodule Practice2.GameCards do
         IO.puts("Vidas: #{data[:lives]}")
     end
 
-    def update_data(data, key, value) do
-        %{data | key => value}
-    end
-
     def show_card(cards, number) when number >=1 and number <=12 do
         get_key_card(cards, number) |> to_string()
-    end
-
-    def sum_score(letter) do
-        if Enum.member?(["a","e","i","o","u"], letter), do: 15, else: 10
     end
 
     def init_board() do

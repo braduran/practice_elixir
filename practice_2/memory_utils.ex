@@ -30,7 +30,7 @@ defmodule Practice2.MemoryUtils do
     String.replace(actual_board,field,replacement)
   end
 
-  def get_card(cards, number) do
+  def get_card(cards, number) when number > 0 and number < 13 do
     t_card = Enum.find(cards, fn {_, v} -> v == number end)
     if t_card == :nil, do: {t_card, :nil},
                        else: {t_card, elem(t_card, 0) |> to_string() |> String.downcase }

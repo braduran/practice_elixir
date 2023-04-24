@@ -44,9 +44,9 @@ defmodule Practice2.MemoryTasks do
         {t_two_card, k_two_str} = get_card(cards, two)
 
         case {k_one_str, k_two_str} do
-            {:nil,:nil} -> do_nothing("Ambas tarjetas ya fueron seleccionadas.", data, cards, board)
-            {:nil,_} -> do_nothing("Una de las tarjetas ya fue seleccionada.", data, cards, board)
-            {_,:nil} -> do_nothing("Una de las tarjetas ya fue seleccionada.", data, cards, board)
+            {:nil,:nil} -> do_nothing("Ambas tarjetas no fueron encontradas.", data, cards, board)
+            {:nil,_} -> do_nothing("Una de las tarjetas no fue encontrada.", data, cards, board)
+            {_,:nil} -> do_nothing("Una de las tarjetas no fue encontrada.", data, cards, board)
             {x,y} when x == y -> same_cards(cards, data, board, t_one_card, t_two_card)
             {x,y} when x != y -> different_cards(cards, data, board, t_one_card, t_two_card)
             _ -> IO.puts("ERROR !!!")

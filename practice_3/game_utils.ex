@@ -11,9 +11,17 @@ defmodule Practice3.GameUtils do
   end
 
   def print_status(data) do
-    IO.puts("Jugador: #{data[:nickname]}")
-    IO.puts("Puntaje: #{data[:score]}")
-    IO.puts("Vidas: #{data[:lives]}")
+    p1 = List.first(data)
+    IO.puts("")
+    IO.puts("Jugador: #{p1[:nickname]}")
+    IO.puts("Puntaje: #{p1[:score]}")
+    IO.puts("Vidas: #{p1[:lives]}")
+
+    IO.puts("---")
+    p2 = List.last(data)
+    IO.puts("Jugador: #{p2[:nickname]}")
+    IO.puts("Puntaje: #{p2[:score]}")
+    IO.puts("Vidas: #{p2[:lives]}")
   end
 
   def get_chunk_letters(letters, chunk) when chunk >= 1 and chunk <= 21 do
